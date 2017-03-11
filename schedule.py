@@ -101,8 +101,7 @@ if NUM_ENTRIES >= 4:
 if NUM_ENTRIES >= 5:
    req_five = requests.get(url+'t='+ENTRY_FIVE+'&Season='+str(SEASON_COUNT5))
 
-#print req_five.json()
-
+## Set number of episodes for each show
 EPISODE_MAX1 = max([int(x['Episode']) for x in req_one.json()['Episodes']])
 if NUM_ENTRIES >= 2:
    EPISODE_MAX2 = max([int(x['Episode']) for x in req_two.json()['Episodes']])
@@ -116,7 +115,7 @@ if NUM_ENTRIES >= 5:
 ## Find largest amount of episodes in a season
 MAX = max(EPISODE_MAX1, EPISODE_MAX2, EPISODE_MAX3, EPISODE_MAX4, EPISODE_MAX5)
 
-# Iterate through and print alternating episodes of each season
+## Iterate through and print alternating episodes of each season
 for x in xrange(1, MAX+1):
    if x <= EPISODE_MAX1 and NUM_ENTRIES > 1 and (x <= EPISODE_MAX2 or x <= EPISODE_MAX3 or x <= EPISODE_MAX4 or x <= EPISODE_MAX5):
       print req_one.json()['Title']+'['+str(SEASON_COUNT1)+'.'+str(EPISODE_COUNT1)+']','-',
@@ -139,7 +138,6 @@ for x in xrange(1, MAX+1):
       print req_three.json()['Title']+'['+str(SEASON_COUNT3)+'.'+str(EPISODE_COUNT3)+']'
       EPISODE_COUNT3 = EPISODE_COUNT3 + 1
 
-   #print NUM_ENTRIES, x, EPISODE_MAX4, EPISODE_MAX5
    if NUM_ENTRIES >= 4 and x <= EPISODE_MAX4 and x <= EPISODE_MAX5:
       print req_four.json()['Title']+'['+str(SEASON_COUNT4)+'.'+str(EPISODE_COUNT4)+']','-',
       EPISODE_COUNT4 = EPISODE_COUNT4 + 1
