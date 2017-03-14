@@ -41,6 +41,8 @@ EPISODE_MAX5=0
 
 MAX=0
 
+RED='\033[0;31m'
+
 # Usage Function
 
 def usage(status=0):
@@ -50,6 +52,26 @@ def usage(status=0):
    -s	SEASON		Which season to call for a show (dafult: 1)
    -a	NICKNAME	Creates a alternative name for the show that can be displayed in lieu of the title'''.format(os.path.basename(sys.argv[0]))
    sys.exit(status)
+
+# Print Function
+
+def print_episode(NICKNAME, SEASON, EPISODE):
+   print NICKNAME+'['+str(SEASON)+'.'+str(EPISODE)+']','-',
+
+# Print in Color Function
+
+def print_color(NICKNAME, SEASON, EPISODE, COLOR):
+   print COLOR+NICKNAME+'['+str(SEASON)+'.'+str(EPISODE)+']'+'\033[38;5;247m','-',
+
+# Print Last Function
+
+def print_last(NICKNAME, SEASON, EPISODE):
+   print NICKNAME+'['+str(SEASON)+'.'+str(EPISODE)+']'
+
+# Print Last Line in Color Function
+
+def print_last_color(NICKNAME, SEASON, EPISODE, COLOR):
+   print COLOR+NICKNAME+'['+str(SEASON)+'.'+str(EPISODE)+']'+'\033[38;5;247m'
 
 # Parse command line options
 
@@ -175,77 +197,77 @@ MAX = max(EPISODE_MAX1, EPISODE_MAX2, EPISODE_MAX3, EPISODE_MAX4, EPISODE_MAX5)
 for x in xrange(1, MAX+1):
 
    if NUM_ENTRIES == 1:
-      print NICKNAME_ONE+'['+str(SEASON_COUNT1)+'.'+str(EPISODE_COUNT1)+']'
+      print_last(NICKNAME_ONE, SEASON_COUNT1, EPISODE_COUNT1)
       EPISODE_COUNT1 = EPISODE_COUNT1 + 1 
    else:
       if x < EPISODE_MAX1:
          if x <= EPISODE_MAX2 or x <= EPISODE_MAX3 or x <= EPISODE_MAX4 or x <= EPISODE_MAX5:
-            print NICKNAME_ONE+'['+str(SEASON_COUNT1)+'.'+str(EPISODE_COUNT1)+']','-',
+            print_episode(NICKNAME_ONE, SEASON_COUNT1, EPISODE_COUNT1)
             EPISODE_COUNT1 = EPISODE_COUNT1 + 1
          else:
-            print NICKNAME_ONE+'['+str(SEASON_COUNT1)+'.'+str(EPISODE_COUNT1)+']'
+            print_last(NICKNAME_ONE, SEASON_COUNT1, EPISODE_COUNT1)
             EPISODE_COUNT1 = EPISODE_COUNT1 + 1
       elif x == EPISODE_MAX1: 
          if x <= EPISODE_MAX2 or x <= EPISODE_MAX3 or x <= EPISODE_MAX4 or x <= EPISODE_MAX5:
-            print '\033[0;31m'+NICKNAME_ONE+'['+str(SEASON_COUNT1)+'.'+str(EPISODE_COUNT1)+']'+'\033[38;5;247m','-',
+            print_color(NICKNAME_ONE, SEASON_COUNT1, EPISODE_COUNT1, RED)
             EPISODE_COUNT1 = EPISODE_COUNT1 + 1
          else:
-            print '\033[0;31m'+NICKNAME_ONE+'['+str(SEASON_COUNT1)+'.'+str(EPISODE_COUNT1)+']'+'\033[38;5;247m'
+            print_last_color(NICKNAME_ONE, SEASON_COUNT1, EPISODE_COUNT1, RED)
             EPISODE_COUNT1 = EPISODE_COUNT1 + 1
 
    if NUM_ENTRIES >= 2:
       if x < EPISODE_MAX2:
          if x <= EPISODE_MAX3 or x <= EPISODE_MAX4 or x <= EPISODE_MAX5:
-            print NICKNAME_TWO+'['+str(SEASON_COUNT2)+'.'+str(EPISODE_COUNT2)+']','-',
+            print_episode(NICKNAME_TWO, SEASON_COUNT2, EPISODE_COUNT2)
             EPISODE_COUNT2 = EPISODE_COUNT2 + 1
          else:
-            print NICKNAME_TWO+'['+str(SEASON_COUNT2)+'.'+str(EPISODE_COUNT2)+']'
+            print_last(NICKNAME_TWO, SEASON_COUNT2, EPISODE_COUNT2)
             EPISODE_COUNT2 = EPISODE_COUNT2 + 1
       elif x == EPISODE_MAX2:
          if x <= EPISODE_MAX3 or x <= EPISODE_MAX4 or x <= EPISODE_MAX5:
-            print '\033[0;31m'+NICKNAME_TWO+'['+str(SEASON_COUNT2)+'.'+str(EPISODE_COUNT2)+']'+'\033[38;5;247m','-',
+            print_color(NICKNAME_TWO, SEASON_COUNT2, EPISODE_COUNT2, RED)
             EPISODE_COUNT2 = EPISODE_COUNT2 + 1
          else:
-            print '\033[0;31m'+NICKNAME_TWO+'['+str(SEASON_COUNT2)+'.'+str(EPISODE_COUNT2)+']'+'\033[38;5;247m'
+            print_last_color(NICKNAME_TWO, SEASON_COUNT2, EPISODE_COUNT2, RED)
             EPISODE_COUNT2 = EPISODE_COUNT2 + 1
 
    if NUM_ENTRIES >= 3:
       if x < EPISODE_MAX3:
          if x <= EPISODE_MAX4 or x <= EPISODE_MAX5:
-            print NICKNAME_THREE+'['+str(SEASON_COUNT3)+'.'+str(EPISODE_COUNT3)+']','-',
+            print_episode(NICKNAME_THREE, SEASON_COUNT3, EPISODE_COUNT3)
             EPISODE_COUNT3 = EPISODE_COUNT3 + 1
          else:
-            print NICKNAME_THREE+'['+str(SEASON_COUNT3)+'.'+str(EPISODE_COUNT3)+']'
+            print_last(NICKNAME_THREE, SEASON_COUNT3, EPISODE_COUNT3)
             EPISODE_COUNT3 = EPISODE_COUNT3 + 1
       elif x == EPISODE_MAX3:
          if x <= EPISODE_MAX4 or x <= EPISODE_MAX5:
-            print '\033[0;31m'+NICKNAME_THREE+'['+str(SEASON_COUNT3)+'.'+str(EPISODE_COUNT3)+']'+'\033[38;5;247m','-',
+            print_color(NICKNAME_THREE, SEASON_COUNT3, EPISODE_COUNT3, RED)
             EPISODE_COUNT3 = EPISODE_COUNT3 + 1
          else:
-            print '\033[0;31m'+NICKNAME_THREE+'['+str(SEASON_COUNT3)+'.'+str(EPISODE_COUNT3)+']'+'\033[38;5;247m'
+            print_last_color(NICKNAME_THREE, SEASON_COUNT3, EPISODE_COUNT3, RED)
             EPISODE_COUNT3 = EPISODE_COUNT3 + 1
 
    if NUM_ENTRIES >= 4:
       if x < EPISODE_MAX4:
          if x <= EPISODE_MAX5:
-            print NICKNAME_FOUR+'['+str(SEASON_COUNT4)+'.'+str(EPISODE_COUNT4)+']','-',
+            print_episode(NICKNAME_FOUR, SEASON_COUNT4, EPISODE_COUNT4)
             EPISODE_COUNT4 = EPISODE_COUNT4 + 1
          else:
-            print NICKNAME_FOUR+'['+str(SEASON_COUNT4)+'.'+str(EPISODE_COUNT4)+']'
+            print_last(NICKNAME_FOUR, SEASON_COUNT4, EPISODE_COUNT4)
             EPISODE_COUNT4 = EPISODE_COUNT4 + 1
       elif x == EPISODE_MAX4:
          if x <= EPISODE_MAX5:
-            print '\033[0;31m'+NICKNAME_FOUR+'['+str(SEASON_COUNT4)+'.'+str(EPISODE_COUNT4)+']'+'\033[38;5;247m','-',
+            print_color(NICKNAME_FOUR, SEASON_COUNT4, EPISODE_COUNT4, RED)
             EPISODE_COUNT4 = EPISODE_COUNT4 + 1
          else:
-            print '\033[0;31m'+NICKNAME_FOUR+'['+str(SEASON_COUNT4)+'.'+str(EPISODE_COUNT4)+']'+'\033[38;5;247m'
+            print_last_color(NICKNAME_FOUR, SEASON_COUNT4, EPISODE_COUNT4, RED)
             EPISODE_COUNT4 = EPISODE_COUNT4 + 1
 
    if NUM_ENTRIES >= 5:
       if x < EPISODE_MAX5:
-         print NICKNAME_FIVE+'['+str(SEASON_COUNT5)+'.'+str(EPISODE_COUNT5)+']'
+         print_last(NICKNAME_FIVE, SEASON_COUNT5, EPISODE_COUNT5)
          EPISODE_COUNT5 = EPISODE_COUNT5 + 1
       elif x == EPISODE_MAX5:
-         print '\033[0;31m'+NICKNAME_FIVE+'['+str(SEASON_COUNT5)+'.'+str(EPISODE_COUNT5)+']'+'\033[38;5;247m'
+         print_last_color(NICKNAME_FIVE, SEASON_COUNT5, EPISODE_COUNT5, RED)
          EPISODE_COUNT5 = EPISODE_COUNT5 + 1
 
