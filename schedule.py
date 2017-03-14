@@ -173,35 +173,79 @@ MAX = max(EPISODE_MAX1, EPISODE_MAX2, EPISODE_MAX3, EPISODE_MAX4, EPISODE_MAX5)
 
 ## Iterate through and print alternating episodes of each season
 for x in xrange(1, MAX+1):
-   if x <= EPISODE_MAX1 and NUM_ENTRIES > 1 and (x <= EPISODE_MAX2 or x <= EPISODE_MAX3 or x <= EPISODE_MAX4 or x <= EPISODE_MAX5):
-      print NICKNAME_ONE+'['+str(SEASON_COUNT1)+'.'+str(EPISODE_COUNT1)+']','-',
-      EPISODE_COUNT1 = EPISODE_COUNT1 + 1
-   elif x == EPISODE_MAX1 or NUM_ENTRIES == 1:
+
+   if NUM_ENTRIES == 1:
       print NICKNAME_ONE+'['+str(SEASON_COUNT1)+'.'+str(EPISODE_COUNT1)+']'
-      EPISODE_COUNT1 = EPISODE_COUNT1 + 1
+      EPISODE_COUNT1 = EPISODE_COUNT1 + 1 
+   else:
+      if x < EPISODE_MAX1:
+         if x <= EPISODE_MAX2 or x <= EPISODE_MAX3 or x <= EPISODE_MAX4 or x <= EPISODE_MAX5:
+            print NICKNAME_ONE+'['+str(SEASON_COUNT1)+'.'+str(EPISODE_COUNT1)+']','-',
+            EPISODE_COUNT1 = EPISODE_COUNT1 + 1
+         else:
+            print NICKNAME_ONE+'['+str(SEASON_COUNT1)+'.'+str(EPISODE_COUNT1)+']'
+            EPISODE_COUNT1 = EPISODE_COUNT1 + 1
+      elif x == EPISODE_MAX1: 
+         if x <= EPISODE_MAX2 or x <= EPISODE_MAX3 or x <= EPISODE_MAX4 or x <= EPISODE_MAX5:
+            print '\033[0;31m'+NICKNAME_ONE+'['+str(SEASON_COUNT1)+'.'+str(EPISODE_COUNT1)+']'+'\033[38;5;247m','-',
+            EPISODE_COUNT1 = EPISODE_COUNT1 + 1
+         else:
+            print '\033[0;31m'+NICKNAME_ONE+'['+str(SEASON_COUNT1)+'.'+str(EPISODE_COUNT1)+']'+'\033[38;5;247m'
+            EPISODE_COUNT1 = EPISODE_COUNT1 + 1
 
-   if NUM_ENTRIES >= 2 and x <= EPISODE_MAX2 and (x <= EPISODE_MAX3 or x <= EPISODE_MAX4 or x <= EPISODE_MAX5):
-      print NICKNAME_TWO+'['+str(SEASON_COUNT2)+'.'+str(EPISODE_COUNT2)+']','-',
-      EPISODE_COUNT2 = EPISODE_COUNT2 + 1
-   elif NUM_ENTRIES >= 2 and x <= EPISODE_MAX2:
-      print NICKNAME_TWO+'['+str(SEASON_COUNT2)+'.'+str(EPISODE_COUNT2)+']'
-      EPISODE_COUNT2 = EPISODE_COUNT2 + 1
+   if NUM_ENTRIES >= 2:
+      if x < EPISODE_MAX2:
+         if x <= EPISODE_MAX3 or x <= EPISODE_MAX4 or x <= EPISODE_MAX5:
+            print NICKNAME_TWO+'['+str(SEASON_COUNT2)+'.'+str(EPISODE_COUNT2)+']','-',
+            EPISODE_COUNT2 = EPISODE_COUNT2 + 1
+         else:
+            print NICKNAME_TWO+'['+str(SEASON_COUNT2)+'.'+str(EPISODE_COUNT2)+']'
+            EPISODE_COUNT2 = EPISODE_COUNT2 + 1
+      elif x == EPISODE_MAX2:
+         if x <= EPISODE_MAX3 or x <= EPISODE_MAX4 or x <= EPISODE_MAX5:
+            print '\033[0;31m'+NICKNAME_TWO+'['+str(SEASON_COUNT2)+'.'+str(EPISODE_COUNT2)+']'+'\033[38;5;247m','-',
+            EPISODE_COUNT2 = EPISODE_COUNT2 + 1
+         else:
+            print '\033[0;31m'+NICKNAME_TWO+'['+str(SEASON_COUNT2)+'.'+str(EPISODE_COUNT2)+']'+'\033[38;5;247m'
+            EPISODE_COUNT2 = EPISODE_COUNT2 + 1
 
-   if NUM_ENTRIES >= 3 and x <= EPISODE_MAX3 and (x <= EPISODE_MAX4 or x <= EPISODE_MAX5):
-      print NICKNAME_THREE+'['+str(SEASON_COUNT3)+'.'+str(EPISODE_COUNT3)+']','-',
-      EPISODE_COUNT3 = EPISODE_COUNT3 + 1
-   elif NUM_ENTRIES >= 3 and x <= EPISODE_MAX3:
-      print NICKNAME_THREE+'['+str(SEASON_COUNT3)+'.'+str(EPISODE_COUNT3)+']'
-      EPISODE_COUNT3 = EPISODE_COUNT3 + 1
+   if NUM_ENTRIES >= 3:
+      if x < EPISODE_MAX3:
+         if x <= EPISODE_MAX4 or x <= EPISODE_MAX5:
+            print NICKNAME_THREE+'['+str(SEASON_COUNT3)+'.'+str(EPISODE_COUNT3)+']','-',
+            EPISODE_COUNT3 = EPISODE_COUNT3 + 1
+         else:
+            print NICKNAME_THREE+'['+str(SEASON_COUNT3)+'.'+str(EPISODE_COUNT3)+']'
+            EPISODE_COUNT3 = EPISODE_COUNT3 + 1
+      elif x == EPISODE_MAX3:
+         if x <= EPISODE_MAX4 or x <= EPISODE_MAX5:
+            print '\033[0;31m'+NICKNAME_THREE+'['+str(SEASON_COUNT3)+'.'+str(EPISODE_COUNT3)+']'+'\033[38;5;247m','-',
+            EPISODE_COUNT3 = EPISODE_COUNT3 + 1
+         else:
+            print '\033[0;31m'+NICKNAME_THREE+'['+str(SEASON_COUNT3)+'.'+str(EPISODE_COUNT3)+']'+'\033[38;5;247m'
+            EPISODE_COUNT3 = EPISODE_COUNT3 + 1
 
-   if NUM_ENTRIES >= 4 and x <= EPISODE_MAX4 and x <= EPISODE_MAX5:
-      print NICKNAME_FOUR+'['+str(SEASON_COUNT4)+'.'+str(EPISODE_COUNT4)+']','-',
-      EPISODE_COUNT4 = EPISODE_COUNT4 + 1
-   elif NUM_ENTRIES >= 4 and x <= EPISODE_MAX4:
-      print NICKNAME_FOUR+'['+str(SEASON_COUNT4)+'.'+str(EPISODE_COUNT4)+']'
-      EPISODE_COUNT4 = EPISODE_COUNT4 + 1
+   if NUM_ENTRIES >= 4:
+      if x < EPISODE_MAX4:
+         if x <= EPISODE_MAX5:
+            print NICKNAME_FOUR+'['+str(SEASON_COUNT4)+'.'+str(EPISODE_COUNT4)+']','-',
+            EPISODE_COUNT4 = EPISODE_COUNT4 + 1
+         else:
+            print NICKNAME_FOUR+'['+str(SEASON_COUNT4)+'.'+str(EPISODE_COUNT4)+']'
+            EPISODE_COUNT4 = EPISODE_COUNT4 + 1
+      elif x == EPISODE_MAX4:
+         if x <= EPISODE_MAX5:
+            print '\033[0;31m'+NICKNAME_FOUR+'['+str(SEASON_COUNT4)+'.'+str(EPISODE_COUNT4)+']'+'\033[38;5;247m','-',
+            EPISODE_COUNT4 = EPISODE_COUNT4 + 1
+         else:
+            print '\033[0;31m'+NICKNAME_FOUR+'['+str(SEASON_COUNT4)+'.'+str(EPISODE_COUNT4)+']'+'\033[38;5;247m'
+            EPISODE_COUNT4 = EPISODE_COUNT4 + 1
 
-   if NUM_ENTRIES >= 5 and x <= EPISODE_MAX5:
-      print NICKNAME_FIVE+'['+str(SEASON_COUNT5)+'.'+str(EPISODE_COUNT5)+']'
-      EPISODE_COUNT5 = EPISODE_COUNT5 + 1
+   if NUM_ENTRIES >= 5:
+      if x < EPISODE_MAX5:
+         print NICKNAME_FIVE+'['+str(SEASON_COUNT5)+'.'+str(EPISODE_COUNT5)+']'
+         EPISODE_COUNT5 = EPISODE_COUNT5 + 1
+      elif x == EPISODE_MAX5:
+         print '\033[0;31m'+NICKNAME_FIVE+'['+str(SEASON_COUNT5)+'.'+str(EPISODE_COUNT5)+']'+'\033[38;5;247m'
+         EPISODE_COUNT5 = EPISODE_COUNT5 + 1
 
