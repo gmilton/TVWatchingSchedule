@@ -3,7 +3,6 @@
 import requests
 import os
 import sys
-import re
 
 # Global Variables
 NUM_ENTRIES=1
@@ -21,7 +20,7 @@ REQ_LIST = [{}, {}, {}, {}, {}]
 def usage(status=0):
    print '''Usage: {} [ -n NUM_ENTRIES -b BOOK ] ENTRY_ONE [ -s SEASON -x NICKNAME ] ENTRY_TWO [ -s SEASON -x NICKNAME ]...
    -n	NUM_ENTRIES	Number of TV shows/movies to sort (default: 1)
-   -b	BOOK		Includes 1 book in schedule
+   -b	BOOK		Includes 1 book in schedule (FEATURE NOT IMPLEMENTED YET)
    -s	SEASON		Which season to call for a show (dafult: 1)
    -a	NICKNAME	Creates a alternative name for the show that can be displayed in lieu of the title'''.format(os.path.basename(sys.argv[0]))
    sys.exit(status)
