@@ -1,4 +1,5 @@
 #!/bin/sh
+# column7.sh
 
-./schedule.py -n 5 'Stargate SG-1' -s 10 -a 'SG-1' 'Daredevil' -s 2 -a 'DD' 'Sanctuary' -s 2 'The IT Crowd' -s 4 -a 'IT' 'Star Trek: Deep Space Nine' -s 4 -a 'DS9'
+./schedule.py -n 5 'Stargate Universe' -a 'SGU' 'Supernatural' -s 11 -a 'SPN' 'Sanctuary' 'Battlestar Galactica' -s 3 -a 'BSG' 'Star Trek: Deep Space Nine' -s 5 -a 'DS9'
 
